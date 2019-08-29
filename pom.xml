@@ -42,10 +42,10 @@
         </plugin>
         <plugin>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.1</version>
+            <version>3.8</version>
             <configuration>
                 <fork>true</fork>
-                <executable>C:\Program Files\Java\jdk1.7.0_45\bin\javac.exe</executable>
+                <executable>C:\Program Files\Java\jre1.8.0_211\bin\javac.exe</executable>
             </configuration>
         </plugin>
         <plugin>
