@@ -41,8 +41,8 @@
           <version>3.0.2</version>
         </plugin>
         <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8</version>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
             <configuration>
                 <fork>true</fork>
                 <executable>C:\Program Files\Java\jre1.8.0_211\bin\javac.exe</executable>
