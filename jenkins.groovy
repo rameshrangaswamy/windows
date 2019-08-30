@@ -26,6 +26,7 @@ stage('checkout & package'){
 stage('publish Artifact'){
 
 try
+	dir('C:\Jenkins\workspace\JFROG_PIPE\target\'){
 		{
 		
 		script{
@@ -46,6 +47,7 @@ try
 		server.publishBuildInfo(buildInfo)
 		}
 }
+	    }
 			catch(Exception exception) 
 			{
 				currentBuild.result = "FAILURE"
