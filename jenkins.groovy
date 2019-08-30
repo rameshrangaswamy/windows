@@ -1,4 +1,4 @@
-def server = Artifactory.server "ArtifactDemo"
+def server = Artifactory.server "Artifact"
 
 def buildInfo = Artifactory.newBuildInfo()
 
@@ -6,7 +6,7 @@ node{
 stage('checkout & package'){
 		checkout scm
 		
-		sh ("${MAVEN_HOME}//bin//mvn clean packge")
+		sh ("mvn clean packge")
 		}
 		
 stage('publish Artifact'){
