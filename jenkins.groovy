@@ -1,5 +1,16 @@
-//def server = Artifactory.server "Artifact"
-import org.jfrog.hudson.pipeline.common.types.ArtifactoryServer.upload;
+#!groovy
+import groovy.sql.Sql
+import groovy.json.JsonParserType
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonOutput
+import java.io.*
+import java.net.*
+import org.apache.commons.io.FileUtils
+import java.util.*;
+import groovy.json.JsonSlurper
+
+echo "Build.Groovy file successfully loaded!!"
+
 def buildInfo = Artifactory.newBuildInfo()
 
 node{
