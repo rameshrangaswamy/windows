@@ -14,7 +14,7 @@ stage('publish Artifact'){
 		def uploadSpec = """{
 			"files": [
 				{
-				  "pattern": "/target/*.jar",
+				  "pattern": "*/*.jar",
 				  "target": "libs-snapshot-local/",
 				  "regexp": "true"
 				}
