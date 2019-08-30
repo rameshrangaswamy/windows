@@ -10,12 +10,13 @@ stage('checkout & package'){
 		}
 		
 stage('publish Artifact'){
-
+		
+		script{
 		def server = Artifactory.server 'Artifact'
 		def uploadSpec = """{
 			"files": [
 				{
-				  "pattern": "c/Program Files (x86)/Jenkins/workspace/JFROG_PIPE/target/*.jar",
+				  "pattern": "C:/Program Files (x86)/Jenkins/workspace/JFROG_PIPE/target/windows-1.0-SNAPSHOT.jar",
 				  "target": "libs-snapshot-local"
 				}
 			]
@@ -26,6 +27,7 @@ stage('publish Artifact'){
 		// Publish build information.
 		buildInfo.env.capture = true
 		server.publishBuildInfo(buildInfo)
+		}
 }
 
 }
