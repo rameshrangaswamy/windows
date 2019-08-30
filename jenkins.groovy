@@ -1,4 +1,4 @@
-def server = Artifactory.server "ArtifactDemo"
+def server = Artifactory.server "Artifact"
 
 def buildInfo = Artifactory.newBuildInfo()
 
