@@ -12,9 +12,9 @@ import org.jfrog.hudson.pipeline.common.types.ArtifactoryServer
 
 echo "Build.Groovy file successfully loaded!!"
 
-def rtMaven = Artifactory.newMavenBuild()
+@NonCPS
+def buildInfo = Artifactory.newBuildInfo()
 def server = Artifactory.server 'Artifact'
-def buildInfo
 
 node{
 
@@ -31,10 +31,6 @@ try
 		
 		script{
 		
-		rtMaven.tool = 'MAVEN_HOME'
-		
-		rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
-		
 		def uploadSpec = """{
 			"files": [
 				{
@@ -43,12 +39,12 @@ try
 				}
 			]
 		}"""
-		server.upload spec: uploadSpec, buildInfo: buildInfo 
-		
+		server.upload(uploadSpec)
+
+		// Publish build information.
 		buildInfo.env.capture = true
 		
-		server.publishBuildInfo buildInfo
-		
+		server.publishBuildInfo(buildInfo)
 		}
 }
 			catch(Exception exception) 
