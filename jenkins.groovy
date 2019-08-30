@@ -29,6 +29,7 @@ try
 		{
 		
 		script{
+		@NonCPS
 		def uploadSpec = """{
 			"files": [
 				{
