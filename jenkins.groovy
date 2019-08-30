@@ -15,7 +15,7 @@ stage('publish Artifact'){
 		def uploadSpec = """{
 			"files": [
 				{
-				  "pattern": "C:/Program Files (x86)/Jenkins/workspace/JFROG_PIPE/target/windows-1.0-SNAPSHOT.jar",
+				  "pattern": "**/*.jar",
 				  "target": "libs-snapshot-local"
 				}
 			]
