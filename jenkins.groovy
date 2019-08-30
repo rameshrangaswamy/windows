@@ -27,7 +27,7 @@ stage('publish Artifact'){
 
 try
 {
-	dir(C:\Jenkins\workspace\JFROG_PIPE\target\)
+	dir(C:/Jenkins/workspace/JFROG_PIPE/target/)
 		{
 		
 		script{
