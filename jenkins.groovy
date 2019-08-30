@@ -1,6 +1,6 @@
 def server = Artifactory.server "Artifact"
 
-def buildInfo = Artifactory.newBuildInfo()
+def buildInfo
 
 node{
 stage('checkout & package'){
