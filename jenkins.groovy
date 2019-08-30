@@ -1,6 +1,6 @@
-//def server = Artifactory.server "Artifact"
+def server = Artifactory.server "Artifact"
 
-//def buildInfo
+def buildInfo = Artifactory.newBuildInfo()
 
 node{
 stage('checkout & package'){
@@ -11,18 +11,18 @@ stage('checkout & package'){
 		
 stage('publish Artifact'){
 
-		rtUpload (
-		    serverId: "Artifact",
-		    spec:
-			"""{
-			  "files": [
-			    {
-			      "pattern": "C:/Program Files (x86)/Jenkins/workspace/JFROG_PIPE/target/windows-1.0-SNAPSHOT.jar",
-			      "target": "bazinga-repo/froggy-files/"
-			    }
-			 ]
-			}"""
-		)
+		def uploadSpec = """{
+			"files": [
+				{
+				  "pattern": "C:/Program Files (x86)/Jenkins/workspace/JFROG_PIPE/target/windows-1.0-SNAPSHOT.jar",
+				  "target": "libs-snapshot-local/",
+				  "regexp": "true"
+				}
+			]
+		}"""
+		buildInfo.env.collect()
+		buildInfo = server.upload(uploadSpec,buildInfo)
+		server.publishBuildInfo buildInfo
 }
 
 }
