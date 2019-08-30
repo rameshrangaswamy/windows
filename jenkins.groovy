@@ -27,10 +27,7 @@ stage('checkout & package'){
 stage('publish Artifact'){
 
 try
-{
-	dir(target/)
-		{
-		
+{	
 		script{
 		
 		def uploadSpec = """{
@@ -49,8 +46,7 @@ try
 		server.publishBuildInfo(buildInfo)
 		}
 }
-	    }
-			catch(Exception exception) 
+	   		catch(Exception exception) 
 			{
 				currentBuild.result = "FAILURE"
 				throw exception
