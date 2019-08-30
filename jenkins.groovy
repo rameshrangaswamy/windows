@@ -11,7 +11,7 @@ stage('checkout & package'){
 		
 stage('publish Artifact'){
 
-		def ArtifactoryServer = Artifactory.ArtifactoryServer 'Artifact'
+		def Server = Artifactory.Server 'Artifact'
 		def uploadSpec = """{
 			"files": [
 				{
@@ -21,7 +21,7 @@ stage('publish Artifact'){
 			]
 		}"""
 
-		def buildInfo = ArtifactoryServer.upload(uploadSpec)
+		def buildInfo = Server.upload(uploadSpec)
 
 		// Publish build information.
 		buildInfo.env.capture = true
