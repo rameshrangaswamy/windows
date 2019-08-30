@@ -1,12 +1,12 @@
-def server = Artifactory.server "Artifact"
-def MAVEN_HOME
+def server = Artifactory.server "ArtifactDemo"
+
 def buildInfo = Artifactory.newBuildInfo()
 
 node{
 stage('checkout & package'){
 		checkout scm
 		
-		sh ("mvn clean package")
+		sh ("${MAVEN_HOME}//bin//mvn clean packge")
 		}
 		
 stage('publish Artifact'){
@@ -14,7 +14,7 @@ stage('publish Artifact'){
 		def uploadSpec = """{
 			"files": [
 				{
-				  "pattern": "jenkins-pipeline-examples/resources/.*A[A-z]tifactory.*.zip",
+				  "pattern": "/target/*.jar",
 				  "target": "libs-snapshot-local/",
 				  "regexp": "true"
 				}
