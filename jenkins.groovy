@@ -11,7 +11,7 @@ stage('checkout & package'){
 		
 stage('publish Artifact'){
 
-		def ArtifactoryServer = Artifactory.server 'Artifact'
+		def ArtifactoryServer = Artifactory.ArtifactoryServer 'Artifact'
 		def uploadSpec = """{
 			"files": [
 				{
