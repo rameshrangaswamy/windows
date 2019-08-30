@@ -6,7 +6,7 @@ node{
 stage('checkout & package'){
 		checkout scm
 		
-		sh ("mvn clean packge")
+		sh ("mvn clean package")
 		}
 		
 stage('publish Artifact'){
