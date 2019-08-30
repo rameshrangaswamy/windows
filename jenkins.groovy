@@ -14,7 +14,7 @@ stage('publish Artifact'){
 		def uploadSpec = """{
 			"files": [
 				{
-				  "pattern": "${WORKSPACE}\target\windows-1.0-SNAPSHOT.jar",
+				  "pattern": "${WORKSPACE}/target/windows-1.0-SNAPSHOT.jar",
 				  "target": "libs-snapshot-local/",
 				  "regexp": "true"
 				}
