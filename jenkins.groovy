@@ -21,7 +21,7 @@ stage('publish Artifact'){
 			]
 		}"""
 
-		def buildInfo = server.upload(uploadSpec)
+		def buildInfo = ArtifactoryServer.upload(uploadSpec)
 
 		// Publish build information.
 		buildInfo.env.capture = true
