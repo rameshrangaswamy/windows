@@ -16,7 +16,7 @@ echo "Build.Groovy file successfully loaded!!"
 def buildInfo = Artifactory.newBuildInfo()
 def server = Artifactory.server 'Artifact'
 
-pipeline{
+node{
 stage('checkout & package'){
 		checkout scm
 		
