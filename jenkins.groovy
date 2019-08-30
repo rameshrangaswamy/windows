@@ -8,7 +8,6 @@ import java.net.*
 import org.apache.commons.io.FileUtils
 import java.util.*;
 import groovy.json.JsonSlurper
-import org.jfrog.hudson.pipeline.common.types.ArtifactoryServer
 
 echo "Build.Groovy file successfully loaded!!"
 
