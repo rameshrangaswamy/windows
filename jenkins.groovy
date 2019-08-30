@@ -7,6 +7,7 @@ stage('checkout & package'){
 		checkout scm
 		
 		sh ("${MAVEN_HOME}//bin//mvn clean packge")
+		}
 		
 stage('publish Artifact'){
 
@@ -21,4 +22,5 @@ stage('publish Artifact'){
 		}"""
 		server.upload spec: uploadSpec, buildInfo: buildInfo
 }
+
 }
