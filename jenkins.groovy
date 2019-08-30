@@ -10,6 +10,9 @@ stage('checkout & package'){
 		}
 		
 stage('publish Artifact'){
+
+try
+		{
 		
 		script{
 		def server = Artifactory.server 'Artifact'
@@ -29,5 +32,16 @@ stage('publish Artifact'){
 		server.publishBuildInfo(buildInfo)
 		}
 }
+			catch(Exception exception) 
+			{
+				currentBuild.result = "FAILURE"
+				throw exception
+			}
+			
+			finally
+			{
+				printlin("Exiting Publish to Artifactory stage")
+			}
 
+}
 }
