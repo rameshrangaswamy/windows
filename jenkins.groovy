@@ -1,6 +1,6 @@
-def server = Artifactory.server "Artifact"
+//def server = Artifactory.server "Artifact"
 
-def buildInfo = Artifactory.newBuildInfo()
+//def buildInfo = Artifactory.newBuildInfo()
 
 node{
 stage('checkout & package'){
@@ -15,18 +15,16 @@ try
 		{
 		
 		script{
-		//def server = Artifactory.server 'Artifact'
+		def server = Artifactory.server 'Artifact'
 		def uploadSpec = """{
 			"files": [
 				{
 				  "pattern": "C:/Program Files (x86)/Jenkins/workspace/JFROG_PIPE/target/windows-1.0-SNAPSHOT.jar",
-				  "target": "libs-snapshot-local/",
-				  "recursive": "false"
+				  "target": "libs-snapshot-local/"
 				}
 			]
 		}"""
-
-		buildInfo = server.upload(uploadSpec)
+		server.upload(uploadSpec)
 
 		// Publish build information.
 		buildInfo.env.capture = true
@@ -41,7 +39,7 @@ try
 			
 			finally
 			{
-				println("Exiting Publish to Artifactory stage")
+				printlin("Exiting Publish to Artifactory stage")
 			}
 
 }
