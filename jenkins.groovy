@@ -12,7 +12,9 @@ import org.jfrog.hudson.pipeline.common.types.ArtifactoryServer
 
 echo "Build.Groovy file successfully loaded!!"
 
+@NonCPS
 def buildInfo = Artifactory.newBuildInfo()
+def server = Artifactory.server 'Artifact'
 
 node{
 stage('checkout & package'){
@@ -27,7 +29,6 @@ try
 		{
 		
 		script{
-		def server = Artifactory.server 'Artifact'
 		def uploadSpec = """{
 			"files": [
 				{
