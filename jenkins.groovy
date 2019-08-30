@@ -1,6 +1,6 @@
-//def server = Artifactory.server "Artifact"
+def server = Artifactory.server "Artifact"
 
-//def buildInfo = Artifactory.newBuildInfo()
+def buildInfo = Artifactory.newBuildInfo()
 
 node{
 stage('checkout & package'){
@@ -15,7 +15,7 @@ try
 		{
 		
 		script{
-		def server = Artifactory.server 'Artifact'
+		//def server = Artifactory.server 'Artifact'
 		def uploadSpec = """{
 			"files": [
 				{
@@ -25,7 +25,7 @@ try
 			]
 		}"""
 
-		def buildInfo = server.upload(uploadSpec)
+		buildInfo = server.upload(uploadSpec)
 
 		// Publish build information.
 		buildInfo.env.capture = true
