@@ -21,7 +21,6 @@ stage('checkout & package'){
 		checkout scm
 		
 		sh ("mvn clean package")
-			pwd
 		}
 		
 stage('publish Artifact'){
