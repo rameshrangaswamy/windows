@@ -16,7 +16,7 @@ stage('publish Artifact'){
 			"files": [
 				{
 				  "pattern": "C:/Program Files (x86)/Jenkins/workspace/JFROG_PIPE/target/windows-1.0-SNAPSHOT.jar",
-				  "target": "libs-snapshot-local/"
+				  "target": "libs-snapshot-local"
 				}
 			]
 		}"""
