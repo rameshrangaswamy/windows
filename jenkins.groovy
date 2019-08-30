@@ -40,7 +40,7 @@ try
 			
 			finally
 			{
-				printlin("Exiting Publish to Artifactory stage")
+				println("Exiting Publish to Artifactory stage")
 			}
 
 }
