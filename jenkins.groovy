@@ -1,5 +1,5 @@
 //def server = Artifactory.server "Artifact"
-
+import org.jfrog.hudson.pipeline.common.types.ArtifactoryServer;
 def buildInfo = Artifactory.newBuildInfo()
 
 node{
