@@ -31,7 +31,7 @@ try
 		def uploadSpec = """{
 			"files": [
 				{
-				  "pattern": "C:/Program Files (x86)/Jenkins/workspace/JFROG_PIPE/target/windows-1.0-SNAPSHOT.jar",
+				  "pattern": "**/target/*.jar",
 				  "target": "libs-snapshot-local/"
 				}
 			]
