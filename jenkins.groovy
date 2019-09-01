@@ -12,7 +12,7 @@ stage('publish Artifact'){
 			    """{
 			      "files": [
 				{
-				  "pattern": "C:/Jenkins/workspace/ArtifactDownload/libs-snapshot-local/demo-b490.tar",
+				  "pattern": "C:/Jenkins/workspace/JFROG_PIPE/target/windows-1.0-SNAPSHOT.jar",
 				  "target": "libs-snapshot-local/"
 				}
 			     ]
