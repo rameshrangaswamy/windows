@@ -2,10 +2,7 @@ node{
 stage('checkout & package'){
 		checkout scm		
 		sh ("mvn clean package")
-		sh """
-		#!bin/bash
-		tar -cvf "$env.BUILD_NUMBER.tar" C:/Jenkins/workspace/JFROG_PIPE/target/*-SNAPSHOT.jar
-		"""
+
 		}		
 stage('publish Artifact'){
 	try
@@ -16,7 +13,7 @@ stage('publish Artifact'){
 			    """{
 			      "files": [
 				{
-				  "pattern": "C:/Jenkins/workspace/JFROG_PIPE/target/*.tar",
+				  "pattern": "C:/Jenkins/workspace/JFROG_PIPE/target/windows-*-SNAPSHOT.jar",
 				  "target": "libs-snapshot-local/"
 				}
 			     ]
