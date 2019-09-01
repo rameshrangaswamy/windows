@@ -5,7 +5,7 @@ stage('checkout & package'){
 		}		
 stage('publish Artifact'){
 	try
-	{	    def buildInfo = Artifactory.newBuildInfo()
+	{	    def buildInfo
 	            def serverId
 		    rtUpload (
 			serverId: "Artifact",
