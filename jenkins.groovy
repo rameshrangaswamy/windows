@@ -5,8 +5,7 @@ stage('checkout & package'){
 		}		
 stage('publish Artifact'){
 	try
-	{	    def buildInfo
-	            def serverId
+	{	   
 		    rtUpload (
 			serverId: "Artifact",
 			spec:
@@ -19,8 +18,9 @@ stage('publish Artifact'){
 			     ]
 			    }"""
 		    )
-		   buildInfo.env.capture = true
-		   serverId.publishBuildInfo(buildInfo)
+		   rtPublishBuildInfo (
+		        serverId: "Artifact"
+		    )
 	}
 	catch(Exception exception) 
 	{
