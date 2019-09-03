@@ -38,7 +38,7 @@ stage('publish Artifact'){
 }
 	stage('pom read'){
 		sh '''#!/bin/bash +x
-		pom=`cat pom.xml | grep "artifactId>win" | cut -d '<' -f2 | cut -d '>' -f2`
+		pom=` cat pom.xml | grep "artifactId" | cut -d '<' -f2 | cut -d '>' -f2 | head -1`
 		echo "artifact id :: $pom.version"
 		echo "${pom}"
 		'''
