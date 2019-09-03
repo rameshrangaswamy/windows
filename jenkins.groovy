@@ -1,7 +1,8 @@
 node{
 stage('checkout & package'){
-		checkout scm		
-		sh ("mvn clean package")
+		checkout scm	
+	
+		sh ("mvn clean package -DskipTests")
 
 		}		
 stage('publish Artifact'){
@@ -35,4 +36,11 @@ stage('publish Artifact'){
 	}
 
 }
+	stage('pom read'){
+		pom = readMavenPom file: 'pom.xml'
+		sh '''#!/bin/bash +x
+		echo "artifact id :: $pom.artifactId"
+		'''
+	}
+	
 }
