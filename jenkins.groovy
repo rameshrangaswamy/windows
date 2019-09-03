@@ -40,7 +40,7 @@ stage('publish Artifact'){
 		//def readMavenPom 
 		def pom = readMavenPom file: 'pom.xml'
 		sh '''#!/bin/bash +x
-		echo "artifact id :: $pom.artifactId"
+		echo "artifact id :: $pom.version"
 		'''
 	}
 	
